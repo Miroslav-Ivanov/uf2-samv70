@@ -27,8 +27,8 @@ jobs:
     # - run: npm test
     
     - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
+    # - name: configure
+    #   run: ./configure
     - name: make
       run: make BOARD=metro_m0
     - name: make check
