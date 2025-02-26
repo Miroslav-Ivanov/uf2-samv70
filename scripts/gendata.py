@@ -32,7 +32,7 @@ with open(selfdata_c_path, "w") as output:
     crcs = []
     crc = 0
     type(bootloader_size)
-    for row in range(bootloader_size / 16):
+    for int(row) in range(bootloader_size / 16):
         type(row)
         # Save the crc every 1k.
         if row % (1024 / 16) == 0 and row > 0:
