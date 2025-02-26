@@ -25,6 +25,9 @@ jobs:
     # - run: npm ci
     # - run: npm run build --if-present
     # - run: npm test
+    - name: arm-none-eabi-gcc GNU Arm Embedded Toolchain
+    - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
+          
     
     - uses: actions/checkout@v4
     # - name: configure
