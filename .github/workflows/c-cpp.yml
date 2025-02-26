@@ -17,10 +17,16 @@ jobs:
 
    
     steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - run: npm ci
+    - run: npm test
     - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
     - run: arm-none-eabi-gcc --version
-    - uses: actions/setup-python@v5.4.0
-    - run: python --version
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '2.7.18'
     - uses: actions/checkout@v4
     # - name: configure
     #   run: ./configure
