@@ -24,7 +24,7 @@ jobs:
     #- run: npm test
     - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
     - run: arm-none-eabi-gcc --version
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v4.6.1
       with:
         python-version: '2.7.18'
     - uses: actions/checkout@v4
