@@ -19,6 +19,8 @@ jobs:
     steps:
     - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
     - run: arm-none-eabi-gcc --version
+    - uses: actions/setup-python@v5.4.0
+    - run: python --version
     - uses: actions/checkout@v4
     # - name: configure
     #   run: ./configure
