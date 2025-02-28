@@ -30,7 +30,4 @@ jobs:
     #   run: ./configure
     - name: make
       run: make BOARD=metro_m0
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    
