@@ -24,7 +24,7 @@ jobs:
     name: SAMV70-Build
     needs: metro_m0
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/SAM-V70/71-Port'
+    if: github.ref == 'refs/heads/v70'
     steps:
     - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
     - run: arm-none-eabi-gcc --version
