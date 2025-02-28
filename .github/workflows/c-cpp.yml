@@ -1,33 +1,35 @@
-name: C/C++ CI
+name: Main Porject CI
 
 on:
   push:
-    branches: [ "SAM-V70/71-Port", "master" ]
+    branches: [ "SAM-V70/71-Port","master"]
   pull_request:
     branches: [ "master" ]
 
+
 jobs:
-  build:
-
+  metro_m0:
+    name: Metro_m0 master build
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-   
     steps:
-    #- uses: actions/setup-node@v4
-     # with:
-     #   node-version: 18
-    #- run: npm ci
-    #- run: npm test
+      - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
+      - run: arm-none-eabi-gcc --version
+      - uses: actions/setup-python@v5
+      - run: python --version
+      - uses: actions/checkout@v4
+      - run: echo "Run Make"
+      - run: make BOARD=metro_m0
+
+  samv70:
+    name: SAMV70-Build
+    needs: metro_m0
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/SAM-V70/71-Port'
+    steps:
     - uses: carlosperate/arm-none-eabi-gcc-action@v1.10.0
     - run: arm-none-eabi-gcc --version
     - uses: actions/setup-python@v5
+    - run: python --version
     - uses: actions/checkout@v4
-    # - name: configure
-    #   run: ./configure
-    - name: make
-      run: make BOARD=metro_m0
-    
+    - run: echo "Run Make"
+    - run: make BOARD=samv70
