@@ -2,7 +2,7 @@ name: Main Porject CI
 
 on:
   push:
-    branches: [ "SAM-V70/71-Port","master"]
+    branches: [ "v70","master"]
   pull_request:
     branches: [ "master" ]
 
